@@ -14,7 +14,7 @@ mongoose.connect(`${process.env.MONGODB_API_KEY}`);
 // Enable CORS for cross-origin requests
 // CORS is required when a client (e.g., frontend) and server are on different origins/domains.
 // It allows the server to accept requests from a different origin, such as a frontend hosted separately.
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173" })); // Allow all origins for simplicity, adjust as needed in production
 
 // Parse incoming JSON request bodies
 app.use(express.json());
@@ -28,7 +28,7 @@ app.get("/todos", async (req, res) => {
 // Define a POST route to add a new todo
 app.post("/add-item", async (req, res) => {
   const newTodo = await Todos.create(req.body); // Create a new todo based on request body
-  res.json(newTodo); // Return the created todo as a response
+  res.status(200); // Return the created todo as a response
 });
 
 // Define a POST route to update an existing todo by ID
