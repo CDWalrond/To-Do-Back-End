@@ -47,7 +47,8 @@ app.delete("/delete-item/:id", async (req, res) => {
   res.json({ message: "Todo deleted successfully" }); // Confirm deletion with a response
 });
 
-// Start the server on port 5000
-app.listen(5000, () => {
-  console.log("Server is running on port 5000"); // Log that the server is up and running
-});
+// // Start the server on port 5000
+// app.listen(5000, () => {
+//   console.log("Server is running on port 5000"); // Log that the server is up and running
+// });
+export default app; // Export the Express app for use in other files
