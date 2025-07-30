@@ -28,7 +28,7 @@ app.get("/todos", async (req, res) => {
 // Define a POST route to add a new todo
 app.post("/add-item", async (req, res) => {
   const newTodo = await Todos.create(req.body); // Create a new todo based on request body
-  res.status(200); // Return the created todo as a response
+  res.json(newTodo); // Return the created todo as a response
 });
 
 // Define a POST route to update an existing todo by ID
