@@ -14,7 +14,11 @@ mongoose.connect(`${process.env.MONGODB_API_KEY}`);
 // Enable CORS for cross-origin requests
 // CORS is required when a client (e.g., frontend) and server are on different origins/domains.
 // It allows the server to accept requests from a different origin, such as a frontend hosted separately.
-app.use(cors({ origin: "http://localhost:5173" })); // Allow all origins for simplicity, adjust as needed in production
+app.use(
+  cors({
+    origin: "http://localhost:5173" || "https://cw-to-do-app.netlify.app/",
+  })
+); // Allow all origins for simplicity, adjust as needed in production
 
 // Parse incoming JSON request bodies
 app.use(express.json());
