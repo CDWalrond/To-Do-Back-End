@@ -16,10 +16,9 @@ mongoose.connect(`${process.env.MONGODB_API_KEY}`);
 // It allows the server to accept requests from a different origin, such as a frontend hosted separately.
 app.use(
   cors({
-    origin: "http://localhost:5173" || "https://cw-to-do-app.netlify.app/",
+    origin: ["http://localhost:5173/" || "https://cw-to-do-app.netlify.app/"],
   })
-); // Allow all origins for simplicity, adjust as needed in production
-
+);
 // Parse incoming JSON request bodies
 app.use(express.json());
 
